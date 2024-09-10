@@ -32,7 +32,9 @@ socket.onmessage = function (event) {
 
 function streamResponse(chunk) {
   currentResponse = document.querySelector("#response-" + responseNum).innerHTML;
-  document.querySelector("#response-" + responseNum).innerHTML = currentResponse + chunk;
+  str = chunk.replace(/\n\n/g, "<br/>");
+  str = str.replace(/\n/g, "<br/>");
+  document.querySelector("#response-" + responseNum).innerHTML += str;
   msgerChat.scrollTop += 500;
 }
 
